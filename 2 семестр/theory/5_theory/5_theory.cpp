@@ -6,25 +6,71 @@ struct Node {
 	int data = 0;
 	Node* left = nullptr;
 	Node* right = nullptr;
+	unsigned char height;
 };
 
-class search_tree {
+class AVL {
 	Node* root;
 public:
-	search_tree() {
+	AVL() {
 		root = new Node;
+		root->height = 1;
 	}
-	search_tree(int x) {
+	AVL(int x) {
 		root = new Node;
 		root->data = x;
+		root->height = 1;
 	}
-	~search_tree() {
+	~AVL() {
 		delete_tree(root);
 	}
 	void delete_tree(Node* root) {
 		if (root->left) delete_tree(root->left);
 		if (root->right) delete_tree(root->right);
 		delete root;
+	}
+	unsigned char height(Node* p){
+		return p ? p->height : 0;
+	}
+	int bfactor(Node* p){
+		return height(p->right) - height(p->left);
+	}
+	void fixheight(Node* p){
+		unsigned char hl = height(p->left);
+		unsigned char hr = height(p->right);
+		p->height = (hl > hr ? hl : hr) + 1;
+	}
+	Node* rotateright(Node* p) {
+		Node* q = p->left;
+		p->left = q->right;
+		q->right = p;
+		fixheight(p);
+		fixheight(q);
+		return q;
+	}
+	Node* rotateleft(Node* q) {
+		Node* p = q->right;
+		q->right = p->left;
+		p->left = q;
+		fixheight(q);
+		fixheight(p);
+		return p;
+	}
+	Node* balance(Node* p) {
+		fixheight(p);
+		if (bfactor(p) == 2)
+		{
+			if (bfactor(p->right) < 0)
+				p->right = rotateright(p->right);
+			return rotateleft(p);
+		}
+		if (bfactor(p) == -2)
+		{
+			if (bfactor(p->left) > 0)
+				p->left = rotateleft(p->left);
+			return rotateright(p);
+		}
+		return p;
 	}
 	bool dfs(Node* t, int x) {
 		if (t->data == x) return 1;
@@ -57,6 +103,7 @@ public:
 			if (temp->data > x) { temp->left = new Node;  temp->left->data = x; }
 			else if (temp->data < x) { temp->right = new Node; temp->right->data = x; }
 		}
+		root=balance(root);
 	}
 	void print() {
 		Node* temp = root;
@@ -71,11 +118,11 @@ public:
 	void bfs(Node* root) {
 		queue<Node*>A;
 		A.push(root);
-		int i=0;
+		int i = 0;
 		while (!A.empty()) {
 			Node* temp = A.front();
 			A.pop();
-			std::cout << temp->data<<" ";
+			std::cout << temp->data << " ";
 			if (temp->left) A.push(temp->left);
 			if (temp->right) A.push(temp->right);
 			if (i % 2 == 0) std::cout << std::endl;
@@ -87,13 +134,14 @@ public:
 	}
 };
 int main() {
-	search_tree A;
+	AVL A;
 	A.push(5);
 	A.push(3);
 	A.push(4);
 	A.push(6);
+	A.push(7);
+	A.push(8);
+	A.push(9);
 	A.print();
-	A.search(4);
-	A.search(9);
 	A.print_tree();
 }
