@@ -46,7 +46,7 @@ void bubbleSort(int arrForSort[], const int SIZE)
 int main() {
 	
 	Timer t;
-	int n = 1000;
+	int n = 100000;
 	int* m_1;
 	m_1 = new int[n];
 	int* m_2;
@@ -79,6 +79,6 @@ int main() {
 		cout << m_2[i] << " ";
 	}
 	cout << endl;
-	cout << "Time elapsed: " << t.elapsed(); // время примерно 0.392
+	cout << "Time elapsed: " << t.elapsed(); // время примерно 59.055
 	return 0;
 }
