@@ -29,24 +29,24 @@ public:
 	}
 };
 
-long long sum(long long first, long long last, long long& result) // функция для нахождения суммы 
+long long sum(int m, long long first, long long last, long long& result) // функция для нахождения суммы, где каждое слагаемое взято по модулю m
 {
 	for (long long i = first; i < last + 1; ++i)
 	{
-		result += i;
+		result += i % m;
 	}
 	return result;
 }
 
 struct sum_block
 {
-	void operator()(long long first, long long last, long long& result)
+	void operator()(int m, long long first, long long last, long long& result)
 	{
-		result = sum(first, last, result);
+		result = sum(m, first, last, result);
 	}
 };
 
-long long parallel_sum(long long begin, long long end, long long init)
+long long parallel_sum(int m, long long begin, long long end, long long init)
 {
 	unsigned long const length = end - begin + 1;
 	if (!length) return init;
@@ -66,10 +66,10 @@ long long parallel_sum(long long begin, long long end, long long init)
 			++block_end;
 		}
 		//advance(block_end, block_size); //из-за этой функции у меня возникали довольно странные ошибки, так и не поняла почему
-		threads[i] = thread(sum_block(), block_start, block_end, ref(results[i]));
+		threads[i] = thread(sum_block(), m, block_start, block_end, ref(results[i]));
 		block_start = block_end + 1;
 	}
-	sum_block()(block_start, end, results[num_threads - 1]);
+	sum_block()(m, block_start, end, results[num_threads - 1]);
 	for_each(threads.begin(), threads.end(), mem_fn(&thread::join));
 	for (unsigned long i = 0; i < num_threads; ++i) // суммируем все результаты из потоков, чтобы найти общую сумму
 	{
@@ -80,10 +80,11 @@ long long parallel_sum(long long begin, long long end, long long init)
 
 int main() {
 	Timer t;
-	long long n = 1000000000;
+	long long n = 10000000000;
+	int m = 7;
 	long long res = 0;
-	res = parallel_sum(1, n, res);
+	res = parallel_sum(m, 1, n, res);
 	cout << res << endl;
-	cout << "Time elapsed: " << t.elapsed(); // время примерно 7 секунд
+	cout << "Time elapsed: " << t.elapsed(); // время примерно 137.973 секунд 
 	return 0;
 }
