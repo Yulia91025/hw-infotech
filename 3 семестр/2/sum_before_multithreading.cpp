@@ -25,21 +25,22 @@ public:
 	}
 };
 
-long long sum(long long first, long long last, long long& result) // функция для нахождения суммы 
+long long sum(int m, long long first, long long last, long long& result) // функция для нахождения суммы, где каждое слагаемое взято по модулю m
 {
 	for (long long i = first; i < last + 1; ++i)
 	{
-		result += i;
+		result += i % m;
 	}
 	return result;
 }
 
 int main() {
 	Timer t;
-	long long n = 1000000000;
+	long long n = 10000000000;
+	int m = 7;
 	long long res = 0;
-	res = sum(1, n, res);
+	res = sum(m, 1, n, res);
 	cout << res << endl;
-	cout << "Time elapsed: " << t.elapsed(); // время примерно 4 секунды
+	cout << "Time elapsed: " << t.elapsed(); // время примерно 140.14 секунд 
 	return 0;
 }
