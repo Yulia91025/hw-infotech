@@ -307,7 +307,6 @@ int main() {
 	cout << "Enter warehouse dimensions" << endl;
 	cin >> x >> y >> z;
 	Warehouse my_warehouse(x, y, z); // создаём склад 
-	//my_warehouse.print();
 	int num_of_boxes;
 	cout << "Enter number of boxes" << endl;
 	cin >> num_of_boxes;
