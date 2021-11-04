@@ -124,6 +124,19 @@ public:
 	void print_w() 
 	{
 		int coeff = 150;
+		if (a > 6 || b > 6 || c > 6)
+		{
+			if (a > b)
+			{
+				if (a > c) coeff = 1000 / a;
+				else  coeff = 1000 / c;
+			}
+			else
+			{
+				if (b > c) coeff = 1000 / b;
+				else  coeff = 1000 / c;
+			}
+		}
 		RenderWindow window_z(VideoMode(b * coeff, a * coeff), "Warehouse X Y"); //выводим слои по Z
 		RectangleShape* Rectangles_z = new RectangleShape[a * b]; 
 		int k = 0;
