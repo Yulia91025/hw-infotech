@@ -1,0 +1,299 @@
+Array Size: 1000
+Number of Prepare Threads: 2
+Number of Process Threads: 2
+Result:
+0
+
+0
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+30000
+
+20000
+
+Time elapsed: 0.0196429
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 2
+Number of Process Threads: 2
+Result:
+0
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+70000
+
+90000
+
+10000
+
+Time elapsed: 0.0197717
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 4
+Number of Process Threads: 2
+Result:
+0
+
+30000
+
+40000
+
+20000
+
+50000
+
+70000
+
+80000
+
+90000
+
+60000
+
+10000
+
+Time elapsed: 0.0165402
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 6
+Number of Process Threads: 2
+Result:
+0
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+90000
+
+70000
+
+80000
+
+10000
+
+Time elapsed: 0.0173134
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 4
+Number of Process Threads: 4
+Result:
+0
+
+40000
+
+50000
+
+70000
+
+80000
+
+10000
+
+90000
+
+90000
+
+50000
+
+20000
+
+30000
+
+Time elapsed: 0.0097768
+-------------------------------------------------------------
+
+
+Array Size: 1000
+Number of Prepare Threads: 4
+Number of Process Threads: 8
+Result:
+0
+
+90000
+
+40000
+
+10000
+
+20000
+
+60000
+
+40000
+
+80000
+
+30000
+
+70000
+
+//программа не завершилась 
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 5
+Number of Process Threads: 3
+Result:
+0
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+10000
+
+20000
+
+// программа не завершилась
+------------------------------------------------------------- 
+
+Array Size: 1000
+Number of Prepare Threads: 3
+Number of Process Threads: 2
+Result:
+0
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+10000
+
+Time elapsed: 0.0116098
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 1
+Number of Process Threads: 1
+Result:
+0
+
+10000
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+Time elapsed: 0.008032
+-------------------------------------------------------------
+Array Size: 1000
+Number of Prepare Threads: 1
+Number of Process Threads: 1
+Result:
+0
+
+10000
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+Time elapsed: 0.0213106
+-------------------------------------------------------------
+
+Array Size: 1000
+Number of Prepare Threads: 1
+Number of Process Threads: 1
+Result:
+0
+
+10000
+
+20000
+
+30000
+
+40000
+
+50000
+
+60000
+
+70000
+
+80000
+
+90000
+
+Time elapsed: 0.0395455
+-------------------------------------------------------------
+
