@@ -1,4 +1,0 @@
-Amount of training data is 1404   Number of mispredicted results is 0
-With SVM it took 119.99641013145447 seconds 
-Amount of training data is 1890   Number of mispredicted results is 0
-With kNN it took 3315.8209371566772 seconds 
