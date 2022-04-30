@@ -13,7 +13,6 @@ def load_csv(filename):
 filename = 'cartoons.csv'
 dataset = load_csv(filename)
 DATA =np.matrix(dataset)
-output = open('results.txt', 'a')
 
 num_train=150
 # первые num_train результатов используем для обучения
